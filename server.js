@@ -15,7 +15,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://mini-social-post-applications.netlify.app",
+      "https://mini-social-post-application.netlify.app",
     ],
     credentials: true,
   }),
