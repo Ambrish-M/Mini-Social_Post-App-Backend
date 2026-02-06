@@ -44,16 +44,9 @@ export const login = async (req, res) => {
       { expiresIn: "7d" },
     );
 
-    res.cookie("token", token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV ==="production",
-      sameSite: "none",
-      maxAge: 7 * 24 * 60 * 60 * 1000,
-    });
-
     res.json({
-      message: "Login Successuful",
-
+      message: "Login successful",
+      token, // <--- send to frontend
       user: { id: user._id, username: user.username },
     });
   } catch (err) {
@@ -62,6 +55,6 @@ export const login = async (req, res) => {
 };
 
 export const logout = (req, res) => {
-  res.clearCookie("token");
+
   res.json({ message: "Logged out successfully" });
 };
